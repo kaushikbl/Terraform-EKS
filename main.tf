@@ -126,8 +126,8 @@ resource "aws_eks_node_group" "eks" {
   }
 }
 
-resource "aws_iam_role" "eks_cluster_role" {
-  name = "eks-cluster-role"
+resource "aws_iam_role" "myeks_cluster_role" {
+  name = "myeks-cluster-role"
 
   assume_role_policy = <<EOF
 {
@@ -145,13 +145,13 @@ resource "aws_iam_role" "eks_cluster_role" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "eks_cluster_role_policy" {
-  role       = aws_iam_role.eks_cluster_role.name
+resource "aws_iam_role_policy_attachment" "myeks_cluster_role_policy" {
+  role       = aws_iam_role.myeks_cluster_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
-resource "aws_iam_role" "eks_node_group_role" {
-  name = "eks-node-group-role"
+resource "aws_iam_role" "myeks_node_group_role" {
+  name = "myeks-node-group-role"
 
   assume_role_policy = <<EOF
 {
