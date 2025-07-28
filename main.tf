@@ -169,22 +169,22 @@ resource "aws_iam_role" "eks_node_group_role" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "eks_node_group_role_policy" {
-  role       = aws_iam_role.eks_node_group_role.name
+resource "aws_iam_role_policy_attachment" "myeks_node_group_role_policy" {
+  role       = aws_iam_role.myeks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "eks_node_group_cni_policy" {
-  role       = aws_iam_role.eks_node_group_role.name
+resource "aws_iam_role_policy_attachment" "myeks_node_group_cni_policy" {
+  role       = aws_iam_role.myeks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
-resource "aws_iam_role_policy_attachment" "eks_node_group_registry_policy" {
-  role       = aws_iam_role.eks_node_group_role.name
+resource "aws_iam_role_policy_attachment" "myeks_node_group_registry_policy" {
+  role       = aws_iam_role.myeks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
-resource "aws_iam_role_policy_attachment" "eks_node_group_ebs_policy" {
-  role       = aws_iam_role.eks_node_group_role.name
+resource "aws_iam_role_policy_attachment" "myeks_node_group_ebs_policy" {
+  role       = aws_iam_role.myeks_node_group_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
 }
