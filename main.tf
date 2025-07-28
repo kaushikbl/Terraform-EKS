@@ -35,7 +35,7 @@ resource "aws_route_table" "my_eks_route_table" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.eks_igw.id
+    gateway_id = aws_internet_gateway.my_eks_igw.id
   }
 
   tags = {
@@ -98,7 +98,7 @@ resource "aws_eks_cluster" "my_eks" {
 
 
 resource "aws_eks_addon" "ebs_csi_driver" {
-  cluster_name    = aws_eks_cluster.eks.name
+  cluster_name    = aws_eks_cluster.my_eks.name
   addon_name      = "aws-ebs-csi-driver"
   
   resolve_conflicts_on_create = "OVERWRITE"
