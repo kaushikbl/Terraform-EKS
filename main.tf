@@ -87,8 +87,8 @@ resource "aws_security_group" "eks_node_sg" {
 }
 
 resource "aws_eks_cluster" "eks" {
-  name     = "eks-cluster"
-  role_arn = aws_iam_role.eks_cluster_role.arn
+  name     = "myeks-cluster"
+  role_arn = aws_iam_role.myeks_cluster_role.arn
 
   vpc_config {
     subnet_ids         = aws_subnet.eks_subnet[*].id
